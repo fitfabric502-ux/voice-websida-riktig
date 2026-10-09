@@ -1,0 +1,4 @@
+import React from 'react';
+export function Star({className=''}){return <svg className={className} viewBox="0 0 100 100" fill="none" aria-hidden="true"><g stroke="currentColor" strokeWidth="3.2" strokeLinecap="round"><path d="M50 3V97M3 50H97M17 17L83 83M17 83L83 17"/></g></svg>}
+export function Wave({seed=1}){return <div className="wave" aria-label="Illustrative signal waveform">{Array.from({length:92},(_,i)=><i key={i} style={{height:`${8+Math.abs(Math.sin(i*1.8+seed)*Math.sin(i*.097+seed))*86}%`,animationDelay:`${i*-0.07}s`}}/>)}</div>}
+export function SignalOrb(){return <div className="signal-orb" aria-hidden="true"><div className="orbit orbit-one"/><div className="orbit orbit-two"/><div className="orbit orbit-three"/><div className="orb-core"><Star/></div><span className="orb-coordinate">51° 30′ 26.4″ N</span><span className="orb-label">SIGNAL FOUND <b>↗</b></span><div className="orb-wave"><Wave/></div></div>}

@@ -1,0 +1,3 @@
+import React,{useEffect,useRef} from 'react';
+import {X} from 'lucide-react';
+export default function Modal({title,onClose,children}){const ref=useRef();useEffect(()=>{const before=document.activeElement;ref.current.showModal();document.body.style.overflow='hidden';return()=>{document.body.style.overflow='';before?.focus()}},[]);return <dialog ref={ref} onCancel={onClose} onClick={e=>{if(e.target===e.currentTarget)onClose()}} aria-labelledby="modal-title"><button className="icon-button close" onClick={onClose} aria-label="Close dialog"><X/></button><p className="eyebrow">VOICE / INTERACTIVE PROTOTYPE</p><h2 id="modal-title">{title}</h2>{children}</dialog>}
